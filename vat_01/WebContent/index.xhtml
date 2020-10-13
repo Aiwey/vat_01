@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+	<title>Vat_01 - ziarno, parametry formularza, nawigacja, messages</title>
+</h:head>
+<h:body>
+
+	<h1>Vat_01 - ziarno, parametry formularza, nawigacja, messages</h1>
+	<h2>Kalkulator Vat</h2>
+
+	<h:form id="bla">
+  		Kwota przed podatkiem: <h:inputText value="#{vatBB.kwota}" />
+		<br />
+  		Typ Podatku: 
+  		<h:selectOneListbox value = "#{vatBB.typ}"> 
+   			<f:selectItem itemValue = "netto-brutto" itemLabel = "netto-brutto" /> 
+   			<f:selectItem itemValue = "brutto-netto" itemLabel = "brutto-netto" /> 
+		</h:selectOneListbox> 
+		<br />	
+		Oprocentowanie: 
+		<h:selectOneListbox value = "#{vatBB.procent}"> 
+   			<f:selectItem itemValue = "3" itemLabel = "3%" /> 
+   			<f:selectItem itemValue = "5" itemLabel = "5%" /> 
+   			<f:selectItem itemValue = "7" itemLabel = "7%" /> 
+   			<f:selectItem itemValue = "8" itemLabel = "8%" /> 
+   			<f:selectItem itemValue = "22" itemLabel = "22%" /> 
+   			<f:selectItem itemValue = "23" itemLabel = "23%" /> 
+		</h:selectOneListbox> 
+		<h:messages id="msg" />
+
+		<h:commandButton value="Oblicz" action="#{vatBB.calc()}"/>
+		<br />
+		<br />
+		<h:commandLink value="Informacje" action="#{vatBB.info()}" />
+	</h:form>
+
+</h:body>
+</html>
